@@ -10,5 +10,12 @@ export const colors = {
 }
 
 export const parameters = {
-    headerheight: 50,
+    headerheight: 40,
+}
+
+// tittle
+export const tittle = {
+    color: colors.green,
+    fontSize: 25,
+    fontWeight:"bold"
 }
