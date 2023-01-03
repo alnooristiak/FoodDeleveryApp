@@ -50,7 +50,9 @@ const SignInScreen = () => {
                 </View>
                 {/* authentication with google and facebook */}
                 <View>
-                    <TouchableOpacity style={styles.signinWith}>
+                    <TouchableOpacity 
+                    onPress={() => {}}
+                    style={styles.signinWith}>
                         <Text
                             style={styles.signInWText}>
                             Sign in with Google
@@ -58,6 +60,7 @@ const SignInScreen = () => {
                     </TouchableOpacity>
                     {/* ======##===== */}
                     <TouchableOpacity
+                    onPress={() => {}}
                         style={{
                             ...styles.signinWith,
                             backgroundColor: colors.green
