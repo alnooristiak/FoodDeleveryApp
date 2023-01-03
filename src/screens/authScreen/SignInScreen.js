@@ -1,60 +1,92 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Header from '../../components/Header'
-import { colors, tittle } from '../../global/Styles'
+import { colors, parameters, tittle } from '../../global/Styles'
+import { Button } from 'react-native-elements'
 
 const SignInScreen = () => {
-  return (
-    <View>
-        {/* Header sec */}
-        <Header tittle="go Back" type="arrow-left" />
-        {/* tittle */}
-        <View style={styles.tittleText}>
-            <Text style={tittle}>Sign In</Text>
-        </View>
-        {/* sign in text paragraph text  */}
-        <View style={styles.signInTextContainer}>
-            <Text style={styles.signInText}>Lorem ipsum amet dolor sit amet consectetur.</Text>
-            <Text style={styles.signInText}>ipsum sit amet adipisicing.</Text>
-        </View>
-        {/* Inputs */}
-        <View>
-            <View style={styles.inputContainer}>
-                <TextInput 
-                style={styles.inputS}
-                placeholder='Enter Email' />
-                <TextInput 
-                style={styles.inputS} 
-                placeholder='Password' />
-            </View>
-            {/* sign in btn */}
+    return (
+        <ScrollView>
             <View>
-                <Text>Sign in btn</Text>
+                {/* Header sec */}
+                <Header tittle="go Back" type="arrow-left" />
+                {/* tittle */}
+                <View style={styles.tittleText}>
+                    <Text style={tittle}>Sign In</Text>
+                </View>
+                {/* sign in text paragraph text  */}
+                <View style={styles.signInTextContainer}>
+                    <Text style={styles.signInText}>Lorem ipsum amet dolor sit amet consectetur.</Text>
+                    <Text style={styles.signInText}>ipsum sit amet adipisicing.</Text>
+                </View>
+                {/* Inputs */}
+                <View>
+                    <View style={styles.inputContainer}>
+                        <TextInput
+                            style={styles.inputS}
+                            placeholder='Enter Email' />
+                        <TextInput
+                            style={styles.inputS}
+                            placeholder='Password' />
+                    </View>
+                    {/* sign in btn */}
+                    <View style={{ marginVertical: 10 }}>
+                        <Button
+                            buttonStyle={parameters.buttonStyle}
+                            titleStyle={parameters.buttonTittle}
+                            title="Sign In" />
+                    </View>
+                </View>
+                {/* forgote Password sec */}
+                <View>
+                    <Text
+                        style={{
+                            ...styles.signInText,
+                            textDecorationLine: 'underline',
+                            textAlign: 'center'
+                        }}>
+                        Forgote Password</Text>
+                    <Text style={styles.orSec}>OR</Text>
+                </View>
+                {/* authentication with google and facebook */}
+                <View>
+                    <TouchableOpacity style={styles.signinWith}>
+                        <Text
+                            style={styles.signInWText}>
+                            Sign in with Google
+                        </Text>
+                    </TouchableOpacity>
+                    {/* ======##===== */}
+                    <TouchableOpacity
+                        style={{
+                            ...styles.signinWith,
+                            backgroundColor: colors.green
+                        }}>
+                        <Text
+                            style={styles.signInWText}>
+                            Sign in with Facebook
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.dontHAc}>
+                    <Text style={styles.signUpTx}>If Dont Have an Account?</Text>
+                    <TouchableOpacity>
+                        <Text
+                            style={styles.signUPbtn}>
+                            Sign in UP
+                        </Text>
+                    </TouchableOpacity>
+                </View>
             </View>
-        </View>
-        {/* forgote Password sec */}
-        <View>
-            <Text>Forgote Password</Text>
-            <Text>OR</Text>
-        </View>
-        {/* authentication with google and facebook */}
-        <View>
-            <Text>google</Text>
-            <Text>fb</Text>
-        </View>
-        <View>
-            <Text>If Dont Have an Account?</Text>
-            <Text>Sign UP</Text>
-        </View>
-    </View>
-  )
+        </ScrollView>
+    )
 }
 
 export default SignInScreen
 
 const styles = StyleSheet.create({
     tittleText: {
-        marginTop: 15,
+        marginVertical: 15,
     },
     signInTextContainer: {
         alignItems: 'center'
@@ -73,5 +105,41 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 13,
         color: colors.green,
-    }
+    },
+    orSec: {
+        fontWeight: 'bold',
+        fontSize: 22,
+        textAlign: 'center',
+        color: colors.green,
+        marginVertical: 20,
+    },
+    signinWith: {
+        backgroundColor: colors.orange_dark,
+        width: '85%',
+        alignSelf: 'center',
+        alignItems: 'center',
+        padding: 15,
+        marginVertical: 15,
+        borderRadius: 10,
+    },
+    signInWText: {
+        fontWeight: '800',
+        fontSize: 19,
+        color: colors.white
+    },
+    dontHAc: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+        marginVertical: 13
+    },
+    signUpTx: {
+        fontSize: 17,
+        fontWeight: '500',
+    },
+    signUPbtn: {
+        color: colors.green,
+        fontWeight: '500',
+        fontSize: 19,
+        marginLeft: 8
+    },
 })

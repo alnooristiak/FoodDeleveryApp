@@ -11,11 +11,28 @@ export const colors = {
 
 export const parameters = {
     headerheight: 40,
+
+    buttonStyle: {
+        backgroundColor: colors.orange_light,
+        textAlign: 'center',
+        alignItems: 'center',
+        padding: 15,
+        BorderRadius: 15,
+        width: '80%',
+        alignSelf: 'center',
+    },
+
+    buttonTittle: {
+        color: colors.white,
+        fontWeight: 'bold',
+        fontSize: 20,
+    },
 }
 
 // tittle
 export const tittle = {
     color: colors.green,
     fontSize: 25,
-    fontWeight:"bold"
+    fontWeight:"bold",
+    textAlign: 'center'
 }
