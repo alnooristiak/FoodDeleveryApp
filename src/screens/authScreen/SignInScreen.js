@@ -4,12 +4,12 @@ import Header from '../../components/Header'
 import { colors, parameters, tittle } from '../../global/Styles'
 import { Button } from 'react-native-elements'
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
     return (
         <ScrollView>
             <View>
                 {/* Header sec */}
-                <Header tittle="go Back" type="arrow-left" />
+                <Header tittle="go Back" navigation={navigation} type="arrow-left" />
                 {/* tittle */}
                 <View style={styles.tittleText}>
                     <Text style={tittle}>Sign In</Text>
@@ -32,6 +32,7 @@ const SignInScreen = () => {
                     {/* sign in btn */}
                     <View style={{ marginVertical: 10 }}>
                         <Button
+                            onPress={()=> {navigation.navigate("HomeScreen")}}
                             buttonStyle={parameters.buttonStyle}
                             titleStyle={parameters.buttonTittle}
                             title="Sign In" />

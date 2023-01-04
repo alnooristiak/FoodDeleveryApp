@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { colors } from '../../global/Styles'
-import Swiper from 'react-native-swiper'
+// import Swiper from 'react-native-swiper'
 
-const SignInWelcomScreen = () => {
+const SignInWelcomScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.WcTextContainer}>
@@ -18,13 +18,15 @@ const SignInWelcomScreen = () => {
         source={require("../../../assets/image/pizza.jpg")} />
       </View>
       {/* sign in & creatae an account btns */}
-      <View  style={styles.btnContainer}>
-        <TouchableOpacity style={styles.signinWith}>
+      <View style={styles.btnContainer}>
+        <TouchableOpacity
+        onPress={()=> {navigation.navigate("SignInScreen")}}
+        style={styles.signinWith}>
             <Text style={styles.signInWText}>Sign In</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.signinWith}>
-            <Text style={styles.signInWText}>Sign In</Text>
+            <Text style={styles.signInWText}>Create an Account</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -59,13 +61,13 @@ const styles = StyleSheet.create({
     //     height: 300,
     // },
     btnContainer: {
-        flexDirection: 'row',
+        // flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: 15
     },
     signinWith: {
         backgroundColor: colors.orange_dark,
-        width: '35%',
+        width: '55%',
         alignSelf: 'center',
         alignItems: 'center',
         padding: 15,

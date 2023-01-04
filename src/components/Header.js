@@ -3,7 +3,7 @@ import React from 'react'
 import { colors, parameters } from '../global/Styles'
 import { Icon } from 'react-native-elements'
 
-const Header = ({tittle, type}) => {
+const Header = ({ tittle, type, navigation }) => {
   return (
     <View style={styles.header}>
       <View style={styles.iconContainer}>
@@ -12,7 +12,7 @@ const Header = ({tittle, type}) => {
             type={type}
             color={colors.white}
             size={24}
-            onPress={() => {}}
+            onPress={() => {navigation.goBack()}}
         />
       </View>
       <View style={styles.textContainer}>
