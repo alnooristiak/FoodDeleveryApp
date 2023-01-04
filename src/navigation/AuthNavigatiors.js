@@ -14,7 +14,7 @@ const AuthNavigatiors = () => {
             <Stack.Navigator>
                 <Stack.Screen 
                 name="SignInWelcomScreen" 
-                options={{ hHomeScreeneaderShown: false }}
+                options={{ headerShown: false }}
                 component={SignInWelcomScreen} />
 
                 <Stack.Screen 

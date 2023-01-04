@@ -6,7 +6,8 @@ export const colors = {
     orange_light: "#ffbe76",
     orange_dark: "#f0932b",
     title_black: "#2f3640",
-    green: "#44bd32",
+    green: "#00b894",
+    green_light: "#55efc4",
 }
 
 export const parameters = {
