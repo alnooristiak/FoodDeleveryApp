@@ -1,10 +1,12 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import HomeHeader from '../components/HomeHeader'
 import { colors } from '../global/Styles'
+import { datas } from '../global/Data'
 
 const HomeScreen = () => {
   const [delevery, setDelevery] = useState(true);
+  const [indexCheck, setIndexCheck] = useState("0")
   return (
     <View>
       {/* Home Header sec */}
@@ -41,6 +43,27 @@ const HomeScreen = () => {
         {/* Category text sec */}
         <View style={styles.category}>
           <Text style={styles.categoryTxt}>CATEGORY</Text>
+        </View>
+        {/* load category list */}
+        <View>
+          <FlatList 
+          data={datas}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
+          extraData={indexCheck}
+          renderItem={({item, index}) => (
+            <Pressable
+            onPress={()=> {setIndexCheck(item.id)}}
+            >
+              <View style={indexCheck === item.id ? {...styles.smallCardSel}:{...styles.smallCard}}>
+              {/* <ScrollView> */}
+                <Text style={styles.cataTitle}>{item.name}</Text>
+              {/* </ScrollView> */}
+              </View>
+            </Pressable>
+          )}
+          />
         </View>
       </ScrollView>
     </View>
@@ -113,5 +136,27 @@ const styles = StyleSheet.create({
   categoryTxt: {
     fontWeight: '800',
     fontSize: 18
+  },
+  smallCardSel: {
+    borderRadius: 30,
+    backgroundColor: colors.green_light,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 85,
+    height: 100,
+    margin: 10
+  },
+  smallCard: {
+    borderRadius: 30,
+    backgroundColor: colors.greay_midiyam,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 80,
+    height: 100,
+    margin: 10
+  },
+  cataTitle: {
+    fontSize: 15,
+    fontWeight: '800'
   }
 })
