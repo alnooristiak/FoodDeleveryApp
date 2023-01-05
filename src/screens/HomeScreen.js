@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import HomeHeader from '../components/HomeHeader'
 import { colors } from '../global/Styles'
 import { datas } from '../global/Data'
+import NameTittle from '../components/NameTittle'
+import FoodImgCard from '../components/FoodImgCard'
+import { cardData } from '../global/CardData'
 
 const HomeScreen = () => {
   const [delevery, setDelevery] = useState(true);
@@ -41,9 +44,10 @@ const HomeScreen = () => {
           </View>
         </View>
         {/* Category text sec */}
-        <View style={styles.category}>
+        {/* <View style={styles.category}>
           <Text style={styles.categoryTxt}>CATEGORY</Text>
-        </View>
+        </View> */}
+        <NameTittle nameTitle='CATEGORY' />
         {/* load category list */}
         <View>
           <FlatList 
@@ -65,6 +69,32 @@ const HomeScreen = () => {
           )}
           />
         </View>
+        {/* free delevery sec */}
+        <NameTittle nameTitle='FREE DELEVERY' />
+        <View>
+          <FlatList 
+          style={{margin: 10}}
+          horizontal={true}
+          data={cardData}
+          keyExtractor={(item,index) => index.toString()}
+          renderItem={({item}) => (
+            <View style={{margin: 6}}>
+              <FoodImgCard
+              image={item.image}
+              name={item.name}
+              rating={item.rating}
+              location={item.location}
+              deleveryTime={item.deleveryTime}
+              likes={item.likes}
+              />
+            </View>
+          )}
+          />
+        </View>
+        {/* PROMOTIONS ABLEABLE sec */}
+        <NameTittle nameTitle='PROMOTIONS ABLEABLE' />
+        {/* RESTURENTS in your area sec */}
+        <NameTittle nameTitle='PROMOTIONS in your area' />
       </ScrollView>
     </View>
   )
@@ -128,15 +158,15 @@ const styles = StyleSheet.create({
     // marginLeft: 8,
     borderRadius: 10
   },
-  category: {
-    marginVertical: 10,
-    padding: 8,
-    backgroundColor: colors.green_light
-  },
-  categoryTxt: {
-    fontWeight: '800',
-    fontSize: 18
-  },
+  // category: {
+  //   marginVertical: 10,
+  //   padding: 8,
+  //   backgroundColor: colors.green_light
+  // },
+  // categoryTxt: {
+  //   fontWeight: '800',
+  //   fontSize: 18
+  // },
   smallCardSel: {
     borderRadius: 30,
     backgroundColor: colors.green_light,
@@ -151,7 +181,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.greay_midiyam,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 80,
+    width: 85,
     height: 100,
     margin: 10
   },
