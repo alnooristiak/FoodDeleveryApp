@@ -40,7 +40,8 @@ const ClientTabs = () => {
         name="SearchScreen" 
         component={SearchScreen}
         options={
-            {
+            {   
+                headerShown: false,
                 tabBarLabel : 'Search',
                 tabBarIcon : ({color, size}) => (
                     <Icon 
@@ -58,7 +59,8 @@ const ClientTabs = () => {
         name="MyAccountScreen" 
         component={MyAccountScreen}
         options={
-            {
+            {   
+                headerShown: false,
                 tabBarLabel : 'My Accound',
                 tabBarIcon : ({color, size}) => (
                     <Icon 
@@ -76,7 +78,8 @@ const ClientTabs = () => {
         name="MyOdersScreen" 
         component={MyOdersScreen}
         options={
-            {
+            {   
+                headerShown: false,
                 tabBarLabel : 'My Oder',
                 tabBarIcon : ({color, size}) => (
                     <Icon 

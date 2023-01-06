@@ -155,7 +155,7 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.mapConatainer}>
         <TouchableOpacity
         onPress={()=> {navigation.navigate("ResturentsMapScreen")}}
-        tyle={styles.viewMConatainer}>
+        style={styles.viewMConatainer}>
           <Text style={styles.mapText}>VIEW</Text>
           <Text style={styles.mapText}>MAP</Text>
         </TouchableOpacity>
@@ -260,15 +260,20 @@ const styles = StyleSheet.create({
   mapConatainer: {
     position: "absolute",
     right: 10,
-    bottom: 100
+    bottom: 170
   },
   viewMConatainer: {
     backgroundColor: colors.green,
-    width: 100,
-    height: 100,
-    borderRadius: 50
+    width: 85,
+    height: 85,
+    borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   mapText: {
-
+    textAlign: 'center',
+    fontWeight: '800',
+    fontSize: 15,
+    color: colors.white
   }
 })
