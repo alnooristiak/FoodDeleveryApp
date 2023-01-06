@@ -3,8 +3,9 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignInWelcomScreen from '../screens/authScreen/SignInWelcomScreen';
 import SignInScreen from '../screens/authScreen/SignInScreen';
-// import HomeScreen from '../screens/HomeScreen';
+import HomeScreen from '../screens/HomeScreen';
 import ClientTabs from './ClientTabs';
+import ResturentsMapScreen from '../screens/ResturentsMapScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,10 +24,20 @@ const AuthNavigatiors = () => {
                 options={{ headerShown: false }}
                 component={SignInScreen} />
 
+                {/* <Stack.Screen 
+                name="HomeScreen" 
+                options={{ headerShown: false }}
+                component={HomeScreen} /> */}
+
                 <Stack.Screen 
                 name="ClientTabs" 
                 options={{ headerShown: false }}
                 component={ClientTabs} />
+
+                <Stack.Screen 
+                name="ResturentsMapScreen" 
+                options={{ headerShown: false }}
+                component={ResturentsMapScreen} />
             </Stack.Navigator>
         </>
     )

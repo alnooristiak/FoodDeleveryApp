@@ -22,7 +22,7 @@ const ClientTabs = () => {
         name="HomeScreen" 
         component={HomeScreen}
         options={
-            {
+            {   headerShown: false,
                 tabBarLabel : 'Home',
                 tabBarIcon : ({color, size}) => (
                     <Icon 

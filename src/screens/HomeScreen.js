@@ -9,11 +9,11 @@ import { cardData } from '../global/CardData'
 import CountDown from 'react-native-countdown-component';
 
 // const SCREEN_WITH = Dimensions.get("window").width;
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [delevery, setDelevery] = useState(true);
   const [indexCheck, setIndexCheck] = useState("0")
   return (
-    <View>
+    <View style={styles.mainContainer}>
       {/* Home Header sec */}
       <HomeHeader />
       {/* Delevery and pick up sec */}
@@ -152,6 +152,14 @@ const HomeScreen = () => {
         {/* RESTURENTS in your area sec */}
         <NameTittle nameTitle='PROMOTIONS in your area' />
       </ScrollView>
+      <View style={styles.mapConatainer}>
+        <TouchableOpacity
+        onPress={()=> {navigation.navigate("ResturentsMapScreen")}}
+        tyle={styles.viewMConatainer}>
+          <Text style={styles.mapText}>VIEW</Text>
+          <Text style={styles.mapText}>MAP</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
@@ -159,6 +167,9 @@ const HomeScreen = () => {
 export default HomeScreen
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    position: 'relative',
+  },
   btnConatiner: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -244,5 +255,20 @@ const styles = StyleSheet.create({
   cataTitle: {
     fontSize: 15,
     fontWeight: '800'
+  },
+  // map section
+  mapConatainer: {
+    position: "absolute",
+    right: 10,
+    bottom: 100
+  },
+  viewMConatainer: {
+    backgroundColor: colors.green,
+    width: 100,
+    height: 100,
+    borderRadius: 50
+  },
+  mapText: {
+
   }
 })
