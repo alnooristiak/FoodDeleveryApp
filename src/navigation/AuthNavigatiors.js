@@ -3,7 +3,8 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignInWelcomScreen from '../screens/authScreen/SignInWelcomScreen';
 import SignInScreen from '../screens/authScreen/SignInScreen';
-import HomeScreen from '../screens/HomeScreen';
+// import HomeScreen from '../screens/HomeScreen';
+import ClientTabs from './ClientTabs';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,9 +24,9 @@ const AuthNavigatiors = () => {
                 component={SignInScreen} />
 
                 <Stack.Screen 
-                name="HomeScreen" 
+                name="ClientTabs" 
                 options={{ headerShown: false }}
-                component={HomeScreen} />
+                component={ClientTabs} />
             </Stack.Navigator>
         </>
     )

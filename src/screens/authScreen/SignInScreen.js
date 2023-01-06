@@ -32,7 +32,7 @@ const SignInScreen = ({ navigation }) => {
                     {/* sign in btn */}
                     <View style={{ marginVertical: 10 }}>
                         <Button
-                            onPress={()=> {navigation.navigate("HomeScreen")}}
+                            onPress={()=> {navigation.navigate("ClientTabs")}}
                             buttonStyle={parameters.buttonStyle}
                             titleStyle={parameters.buttonTittle}
                             title="Sign In" />

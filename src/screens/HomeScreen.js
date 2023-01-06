@@ -6,7 +6,9 @@ import { datas } from '../global/Data'
 import NameTittle from '../components/NameTittle'
 import FoodImgCard from '../components/FoodImgCard'
 import { cardData } from '../global/CardData'
+import CountDown from 'react-native-countdown-component';
 
+// const SCREEN_WITH = Dimensions.get("window").width;
 const HomeScreen = () => {
   const [delevery, setDelevery] = useState(true);
   const [indexCheck, setIndexCheck] = useState("0")
@@ -50,49 +52,103 @@ const HomeScreen = () => {
         <NameTittle nameTitle='CATEGORY' />
         {/* load category list */}
         <View>
-          <FlatList 
-          data={datas}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={(item) => item.id}
-          extraData={indexCheck}
-          renderItem={({item, index}) => (
-            <Pressable
-            onPress={()=> {setIndexCheck(item.id)}}
-            >
-              <View style={indexCheck === item.id ? {...styles.smallCardSel}:{...styles.smallCard}}>
-              {/* <ScrollView> */}
-                <Text style={styles.cataTitle}>{item.name}</Text>
-              {/* </ScrollView> */}
-              </View>
-            </Pressable>
-          )}
+          <FlatList
+            data={datas}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            keyExtractor={(item) => item.id}
+            extraData={indexCheck}
+            renderItem={({ item, index }) => (
+              <Pressable
+                onPress={() => { setIndexCheck(item.id) }}
+              >
+                <View style={indexCheck === item.id ? { ...styles.smallCardSel } : { ...styles.smallCard }}>
+                  {/* <ScrollView> */}
+                  <Text style={styles.cataTitle}>{item.name}</Text>
+                  {/* </ScrollView> */}
+                </View>
+              </Pressable>
+            )}
           />
         </View>
         {/* free delevery sec */}
         <NameTittle nameTitle='FREE DELEVERY' />
         <View>
-          <FlatList 
-          style={{margin: 10}}
-          horizontal={true}
-          data={cardData}
-          keyExtractor={(item,index) => index.toString()}
-          renderItem={({item}) => (
-            <View style={{margin: 6}}>
-              <FoodImgCard
-              image={item.image}
-              name={item.name}
-              rating={item.rating}
-              location={item.location}
-              deleveryTime={item.deleveryTime}
-              likes={item.likes}
-              />
-            </View>
-          )}
+          <View style={{flexDirection: 'row', 
+          justifyContent: 'center',}}>
+            <Text
+            style={{fontSize: 17, 
+              fontWeight: 'bold', 
+              color: colors.green, 
+              textAlign: 'center', padding: 5}}
+            >Options Change In</Text>
+            <CountDown
+              until={3600}
+              // onFinish={() => alert('finished')}
+              onPress={() => alert('hello')}
+              size={14}
+              digitStyle={{backgroundColor: colors.orange_dark}}
+              timeToShow={['M', 'S']}
+              timeLabels={{m:'Min', s:'Sec'}}
+            />
+          </View>
+          <FlatList
+            style={{ margin: 10 }}
+            horizontal={true}
+            data={cardData}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View style={{ margin: 6 }}>
+                <FoodImgCard
+                  image={item.image}
+                  name={item.name}
+                  rating={item.rating}
+                  location={item.location}
+                  deleveryTime={item.deleveryTime}
+                  likes={item.likes}
+                />
+              </View>
+            )}
           />
         </View>
         {/* PROMOTIONS ABLEABLE sec */}
         <NameTittle nameTitle='PROMOTIONS ABLEABLE' />
+        {/* <View style={{ paddingTop: 10}}>
+            {
+              cardData.map(item => (
+                <View key={item.id} style={{paddingBottom: 20}}>
+                  <FoodImgCard
+                  image={item.image}
+                  name={item.name}
+                  rating={item.rating}
+                  location={item.location}
+                  deleveryTime={item.deleveryTime}
+                  likes={item.likes}
+                  />
+                </View>
+              ))
+            }
+          </View> */}
+        <View style={{ marginBottom: 20, }}>
+          <FlatList
+            style={{ marginBottom: 50 }}
+            horizontal={true}
+            data={cardData}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View style={{ margin: 6 }}>
+                <FoodImgCard
+                  image={item.image}
+                  name={item.name}
+                  rating={item.rating}
+                  location={item.location}
+                  deleveryTime={item.deleveryTime}
+                  likes={item.likes}
+                />
+              </View>
+            )}
+          />
+        </View>
         {/* RESTURENTS in your area sec */}
         <NameTittle nameTitle='PROMOTIONS in your area' />
       </ScrollView>
@@ -106,7 +162,7 @@ const styles = StyleSheet.create({
   btnConatiner: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    margin: 18
+    margin: 18,
   },
   deleveryBtn: {
     backgroundColor: colors.greay_dark,
@@ -144,7 +200,7 @@ const styles = StyleSheet.create({
     padding: 3,
     marginLeft: 8,
     borderRadius: 10
-  }, 
+  },
   tests: {
     fontSize: 17,
     marginLeft: 4

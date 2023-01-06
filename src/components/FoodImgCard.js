@@ -1,8 +1,8 @@
-import { Dimensions, Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { colors } from '../global/Styles';
 
-// const image = { uri: "https://reactjs.org/logo-og.png" };
+const fakeImg = "../../assets/image/kabab.jpg";
 const SCREEN_WITH = Dimensions.get("window").window;
 const FoodImgCard = ({
     id, 
@@ -16,10 +16,10 @@ const FoodImgCard = ({
   return (
     <View style={styles.container}>
       <View style={styles.imageConatiner}>
-        <ImageBackground 
-        source={`require${image}`} 
+        <Image
+        source={require(fakeImg)}
         resizeMode="cover" 
-        style={styles.image} />
+        style={styles.imageStyle} />
         <View style={styles.ratingConatiner}>
             <Text style={styles.ratingText}>{rating}</Text>
             <Text style={styles.ratingText}>{likes}</Text>
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
         height: 220,
     },
     imageConatiner: {
-        position: 'relative'
+        position: 'relative',
+        width: SCREEN_WITH,
     },
     ratingConatiner: {
         position: "absolute",
@@ -58,11 +59,11 @@ const styles = StyleSheet.create({
         right: 8
     },
     ratingText: {
-        color: colors.green,
+        color: 'black',
         fontSize: 18,
         fontWeight: 'bold'
     },
-    image: {
+    imageStyle: {
         width: SCREEN_WITH,
         height: 150,
     },
