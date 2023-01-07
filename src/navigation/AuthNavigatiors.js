@@ -3,9 +3,10 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SignInWelcomScreen from '../screens/authScreen/SignInWelcomScreen';
 import SignInScreen from '../screens/authScreen/SignInScreen';
-import HomeScreen from '../screens/HomeScreen';
+// import HomeScreen from '../screens/HomeScreen';
 import ClientTabs from './ClientTabs';
 import ResturentsMapScreen from '../screens/ResturentsMapScreen';
+// import DrawerNavigation from '../screens/authScreen/DrawerNavigation';
 
 
 const Stack = createNativeStackNavigator();
@@ -33,6 +34,11 @@ const AuthNavigatiors = () => {
                 name="ClientTabs" 
                 options={{ headerShown: false }}
                 component={ClientTabs} />
+
+                {/* <Stack.Screen 
+                name="DrawerNavigation" 
+                options={{ headerShown: false }}
+                component={DrawerNavigation} /> */}
 
                 <Stack.Screen 
                 name="ResturentsMapScreen" 

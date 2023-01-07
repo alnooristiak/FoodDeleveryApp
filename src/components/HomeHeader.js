@@ -1,17 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { colors } from '../global/Styles'
 import { parameters } from '../global/Styles'
 import { Icon, withBadge } from 'react-native-elements'
 
-const HomeHeader = () => {
+const HomeHeader = ({ navigation }) => {
   const BadgeIcon = withBadge(3)(Icon)
   return (
     <View>
       <View style={styles.container}>
-        <View>
+        <TouchableOpacity
+        // onPress={() => {navigation.toggleDrawer('')}}
+        >
           <Text style={{color: colors.white, fontSize: 20, fontWeight: 'bold'}}>MENU</Text>
-        </View>
+        </TouchableOpacity>
         <View>
           <Text style={{color: colors.white, fontSize: 20, fontWeight: 'bold'}}>FOOD Express</Text>
         </View>

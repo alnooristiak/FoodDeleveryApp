@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../../components/Header'
 import { colors, parameters, tittle } from '../../global/Styles'
 import { Button } from 'react-native-elements'
+// import DrawerNavigation from './DrawerNavigation'
 
 const SignInScreen = ({ navigation }) => {
     return (
@@ -29,10 +30,10 @@ const SignInScreen = ({ navigation }) => {
                             style={styles.inputS}
                             placeholder='Password' />
                     </View>
-                    {/* sign in btn */}
+                    {/* sign in btn DrawerNavigation ClientTabs  */}
                     <View style={{ marginVertical: 10 }}>
                         <Button
-                            onPress={()=> {navigation.navigate("ClientTabs")}}
+                            onPress={()=> {navigation.navigate('ClientTabs')}}
                             buttonStyle={parameters.buttonStyle}
                             titleStyle={parameters.buttonTittle}
                             title="Sign In" />

@@ -15,11 +15,11 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.mainContainer}>
       {/* Home Header sec */}
-      <HomeHeader />
+      <HomeHeader navigation={navigation} />
       {/* Delevery and pick up sec */}
       <View style={styles.btnConatiner}>
         <TouchableOpacity
-          onPress={() => { setDelevery(true) }}
+          // onPress={() => { navigation.navigate("ResturentsMapScreen") }}
           style={styles.deleveryBtn}>
           <Text style={styles.btnTxt}>Delevery</Text>
         </TouchableOpacity>
@@ -74,22 +74,27 @@ const HomeScreen = ({ navigation }) => {
         {/* free delevery sec */}
         <NameTittle nameTitle='FREE DELEVERY' />
         <View>
-          <View style={{flexDirection: 'row', 
-          justifyContent: 'center',}}>
+          <View style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+          }}>
             <Text
-            style={{fontSize: 17, 
-              fontWeight: 'bold', 
-              color: colors.green, 
-              textAlign: 'center', padding: 5}}
+              style={{
+                fontSize: 17,
+                fontWeight: 'bold',
+                color: colors.green,
+                textAlign: 'center', 
+                padding: 5
+              }}
             >Options Change In</Text>
             <CountDown
               until={3600}
               // onFinish={() => alert('finished')}
               onPress={() => alert('hello')}
               size={14}
-              digitStyle={{backgroundColor: colors.orange_dark}}
+              digitStyle={{ backgroundColor: colors.orange_dark }}
               timeToShow={['M', 'S']}
-              timeLabels={{m:'Min', s:'Sec'}}
+              timeLabels={{ m: 'Min', s: 'Sec' }}
             />
           </View>
           <FlatList
@@ -152,14 +157,17 @@ const HomeScreen = ({ navigation }) => {
         {/* RESTURENTS in your area sec */}
         <NameTittle nameTitle='PROMOTIONS in your area' />
       </ScrollView>
-      <View style={styles.mapConatainer}>
-        <TouchableOpacity
-        onPress={()=> {navigation.navigate("ResturentsMapScreen")}}
-        style={styles.viewMConatainer}>
-          <Text style={styles.mapText}>VIEW</Text>
-          <Text style={styles.mapText}>MAP</Text>
-        </TouchableOpacity>
-      </View>
+      {
+        delevery &&
+        <View style={styles.mapConatainer}>
+          <TouchableOpacity
+            onPress={() => { navigation.navigate("ResturentsMapScreen") }}
+            style={styles.viewMConatainer}>
+            <Text style={styles.mapText}>VIEW</Text>
+            <Text style={styles.mapText}>MAP</Text>
+          </TouchableOpacity>
+        </View>
+      }
     </View>
   )
 }
